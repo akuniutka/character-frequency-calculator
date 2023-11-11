@@ -21,8 +21,10 @@ class BusinessExceptionTranslatorTest {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     private static final String ERROR_MESSAGE = "input data is null";
     private static final String URL = "/calculateCharacterFrequencies";
+
     @Autowired
     private MockMvc mvc;
+
     @MockBean
     private CharacterFrequencyService service;
 
