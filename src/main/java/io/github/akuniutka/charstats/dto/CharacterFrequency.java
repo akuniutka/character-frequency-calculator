@@ -1,6 +1,5 @@
 package io.github.akuniutka.charstats.dto;
 
-
 public class CharacterFrequency {
     private final String character;
     private final Long frequency;

@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CharacterFrequencyServiceTest {
     @Test
-    void testGetCharacterFrequenciesWhenStringIsNotNull() {
+    void testGetCharacterFrequencies() {
         String string = "Hello, World!";
         String[] expectedCharacters = {"l", "o", " ", "!", ",", "H", "W", "d", "e", "r"};
         long[] expectedFrequencies = {3L, 2L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L};

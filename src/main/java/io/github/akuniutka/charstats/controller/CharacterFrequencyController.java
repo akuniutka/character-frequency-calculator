@@ -2,6 +2,7 @@ package io.github.akuniutka.charstats.controller;
 
 import io.github.akuniutka.charstats.dto.CharacterFrequency;
 import io.github.akuniutka.charstats.dto.InputData;
+import io.github.akuniutka.charstats.exception.BadInputDataException;
 import io.github.akuniutka.charstats.service.CharacterFrequencyService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,13 +19,12 @@ public class CharacterFrequencyController {
         this.service = service;
     }
 
-    @PostMapping("/getCharStats")
+    @PostMapping("/calculateCharacterFrequencies")
     @Operation(summary = "Calculates frequency for characters in the input string.")
-    public List<CharacterFrequency> getCharStats(@RequestBody InputData inputData) {
+    public List<CharacterFrequency> calculateCharacterFrequencies(@RequestBody InputData inputData) {
         if (inputData == null || inputData.getData() == null) {
-            return null;
-        } else {
-            return service.getCharacterFrequencies(inputData.getData());
+            throw new BadInputDataException("input data is null");
         }
+        return service.getCharacterFrequencies(inputData.getData());
     }
 }
