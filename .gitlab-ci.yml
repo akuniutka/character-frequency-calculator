@@ -1,0 +1,39 @@
+image: eclipse-temurin:8-jdk
+
+variables:
+  MAVEN_CPI_OPTS: >-
+    --batch-mode
+    --errors
+    --fail-at-end
+    --show-version
+    --no-transfer-progress
+
+stages:
+  - build
+  - unit-test
+  - integration-test
+
+build:
+  stage: build
+  script:
+    - './mvnw $MAVEN_CLI_OPTS compile'
+
+unit-test:
+  stage: unit-test
+  script:
+    - './mvnw $MAVEN_CLI_OPTS test'
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+
+integration-test:
+  stage: integration-test
+  script:
+    - './mvnw $MAVEN_CLI_OPTS verify'
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/failsafe-reports/TEST-*.xml
