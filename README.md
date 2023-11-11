@@ -1,1 +1,1 @@
-A REST service which counts how many times a char meets in an input string.
+A REST service which calculates frequency for characters in the input string.

@@ -1,11 +1,11 @@
-package io.github.akuniutka.charcounter;
+package io.github.akuniutka.charstats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CharCounter {
+public class CharacterFrequencyCalculator {
     public static void main(String[] args) {
-        SpringApplication.run(CharCounter.class, args);
+        SpringApplication.run(CharacterFrequencyCalculator.class, args);
     }
 }
